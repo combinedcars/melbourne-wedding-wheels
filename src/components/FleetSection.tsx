@@ -1,8 +1,9 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Users, Award, Settings } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const fleetData = [
   {
@@ -42,6 +43,30 @@ const fleetData = [
 const FleetSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animationDirection, setAnimationDirection] = useState('');
+  const isMobile = useIsMobile();
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  // Handle swipe gestures on mobile
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+  
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+  
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 100) {
+      // Swipe left
+      nextCar();
+    }
+    
+    if (touchEnd - touchStart > 100) {
+      // Swipe right
+      prevCar();
+    }
+  };
 
   const displayedCars = () => {
     // For mobile, show 1, for tablet 2, for desktop 3
@@ -79,18 +104,23 @@ const FleetSection = () => {
   };
 
   return (
-    <section id="fleet" className="bg-white py-24">
+    <section id="fleet" className="bg-white py-16 md:py-24">
       <div className="container mx-auto px-4">
         <h2 className="section-heading">Our Luxury Fleet</h2>
         <p className="section-subheading">
           Experience unparalleled elegance with our collection of premium vehicles
         </p>
 
-        <div className="mt-12 relative">
-          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-300 ${animationDirection}`}>
+        <div className="mt-8 md:mt-12 relative">
+          <div 
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 transition-all duration-300 ${animationDirection}`}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
             {displayedCars().map((car) => (
               <Card key={car.id} className="overflow-hidden border border-silver shadow-xl h-full flex flex-col">
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-48 sm:h-64 overflow-hidden">
                   <img 
                     src={car.image} 
                     alt={car.name} 
@@ -103,18 +133,18 @@ const FleetSection = () => {
                     </div>
                   </div>
                 </div>
-                <CardContent className="flex-1 p-6">
-                  <h3 className="font-playfair text-2xl font-semibold mb-2">{car.name}</h3>
-                  <p className="text-gray-600 mb-4">{car.description}</p>
+                <CardContent className="flex-1 p-4 md:p-6">
+                  <h3 className="font-playfair text-xl md:text-2xl font-semibold mb-2">{car.name}</h3>
+                  <p className="text-gray-600 mb-4 text-sm md:text-base">{car.description}</p>
                   
-                  <div className="mt-4">
-                    <h4 className="font-semibold flex items-center text-sm uppercase tracking-wider text-gray-500 mb-2">
-                      <Award size={16} className="mr-1" /> Features
+                  <div className="mt-3 md:mt-4">
+                    <h4 className="font-semibold flex items-center text-xs md:text-sm uppercase tracking-wider text-gray-500 mb-2">
+                      <Award size={isMobile ? 14 : 16} className="mr-1" /> Features
                     </h4>
                     <ul className="space-y-1">
                       {car.features.map((feature, index) => (
-                        <li key={index} className="text-sm flex items-start">
-                          <Settings size={12} className="mr-1 mt-1 text-gold" />
+                        <li key={index} className="text-xs md:text-sm flex items-start">
+                          <Settings size={isMobile ? 10 : 12} className="mr-1 mt-1 text-gold" />
                           {feature}
                         </li>
                       ))}
@@ -125,14 +155,20 @@ const FleetSection = () => {
             ))}
           </div>
 
-          <div className="flex justify-center mt-8 space-x-4">
+          {isMobile && (
+            <p className="text-center text-sm text-muted-foreground mt-4">
+              Swipe left or right to view more
+            </p>
+          )}
+
+          <div className="flex justify-center mt-6 md:mt-8 space-x-4">
             <Button 
               variant="outline" 
               size="icon" 
               onClick={prevCar}
               className="rounded-full border-2 border-gold text-gold hover:bg-gold/10"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={isMobile ? 16 : 20} />
             </Button>
             
             <div className="flex space-x-2">
@@ -153,7 +189,7 @@ const FleetSection = () => {
               onClick={nextCar}
               className="rounded-full border-2 border-gold text-gold hover:bg-gold/10"
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={isMobile ? 16 : 20} />
             </Button>
           </div>
         </div>
