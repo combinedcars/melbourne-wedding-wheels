@@ -17,7 +17,7 @@ const HeroSection = () => {
     >
       {/* Background Image */}
       <div className="absolute inset-0 bg-cover bg-center" style={{ 
-        backgroundImage: 'linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)), url("https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80")', 
+        backgroundImage: 'linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80")', 
         backgroundAttachment: 'fixed' 
       }}></div>
       
