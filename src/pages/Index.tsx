@@ -17,7 +17,7 @@ const Index = () => {
 
   useEffect(() => {
     // Update the title
-    document.title = 'Melbourne Wedding Wheels | Luxury Wedding Chauffeurs';
+    document.title = 'Wedding Chauffeurs Melbourne | Luxury Wedding Chauffeurs';
 
     // Add scroll event listener for the scroll-to-top button
     const handleScroll = () => {

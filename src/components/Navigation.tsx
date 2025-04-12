@@ -39,7 +39,7 @@ const Navigation = () => {
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#" className="flex items-center">
           <h1 className={`text-2xl font-bold font-playfair ${isScrolled ? 'text-primary' : 'text-white'}`}>
-            <span className="text-gold">Melbourne</span> Wedding Wheels
+            <span className="text-gold">Wedding</span> Chauffeurs Melbourne
           </h1>
         </a>
 

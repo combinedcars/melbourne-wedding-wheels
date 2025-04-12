@@ -40,7 +40,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 py-16">
           <div>
             <h3 className="text-2xl font-playfair font-semibold mb-6">
-              <span className="text-gold">Melbourne</span> Wedding Wheels
+              <span className="text-gold">Wedding</span> Chauffeurs Melbourne
             </h3>
             <p className="text-gray-300 mb-6">
               Providing luxury chauffeur services for weddings across Melbourne. Make your special day truly unforgettable with our premium fleet of vehicles.
@@ -117,7 +117,7 @@ const Footer = () => {
         
         <div className="py-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Melbourne Wedding Wheels. All rights reserved.
+            &copy; {new Date().getFullYear()} Wedding Chauffeurs Melbourne. All rights reserved.
           </p>
           
           <button 
