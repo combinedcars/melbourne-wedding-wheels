@@ -64,6 +64,12 @@ const Navigation = () => {
             Services
           </button>
           <button 
+            onClick={() => scrollTo('packages')} 
+            className={`font-medium transition-colors ${isScrolled ? 'text-primary hover:text-gold' : 'text-white hover:text-gold-light'}`}
+          >
+            Packages
+          </button>
+          <button 
             onClick={() => scrollTo('fleet')} 
             className={`font-medium transition-colors ${isScrolled ? 'text-primary hover:text-gold' : 'text-white hover:text-gold-light'}`}
           >
@@ -118,6 +124,12 @@ const Navigation = () => {
               className="text-primary font-medium py-2 hover:text-gold text-left"
             >
               Services
+            </button>
+            <button 
+              onClick={() => scrollTo('packages')}
+              className="text-primary font-medium py-2 hover:text-gold text-left"
+            >
+              Packages
             </button>
             <button 
               onClick={() => scrollTo('fleet')}
