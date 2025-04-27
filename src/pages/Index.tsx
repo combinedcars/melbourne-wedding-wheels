@@ -11,13 +11,15 @@ import TestimonialsSection from '@/components/TestimonialsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
+import { useWordPress } from '@/context/WordPressContext';
 
 const Index = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const { siteSettings, loading } = useWordPress();
 
   useEffect(() => {
-    // Update the title
-    document.title = 'Wedding Chauffeurs Melbourne | Luxury Wedding Chauffeurs';
+    // Update the title from WordPress settings if available
+    document.title = siteSettings?.site_title || 'Wedding Chauffeurs Melbourne | Luxury Wedding Chauffeurs';
 
     // Add scroll event listener for the scroll-to-top button
     const handleScroll = () => {
@@ -30,7 +32,7 @@ const Index = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [siteSettings]);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -38,6 +40,17 @@ const Index = () => {
       behavior: 'smooth'
     });
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="flex flex-col items-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gold mb-4"></div>
+          <p className="text-primary">Loading content from WordPress...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen">
