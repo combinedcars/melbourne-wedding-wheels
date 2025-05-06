@@ -54,9 +54,9 @@ const ContactForm = () => {
 
     if (formRef.current) {
       // Replace these with your actual EmailJS service ID, template ID, and public key
-      const serviceId = 'YOUR_SERVICE_ID';
-      const templateId = 'YOUR_TEMPLATE_ID';
-      const publicKey = 'YOUR_PUBLIC_KEY';
+      const serviceId = 'service_heqyxmc';
+      const templateId = 'template_sspgt49';
+      const publicKey = 'pQ4yj83t2C-Xnp4BW';
 
       emailjs.sendForm(serviceId, templateId, formRef.current, publicKey)
         .then((result) => {
