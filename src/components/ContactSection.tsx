@@ -1,21 +1,15 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { 
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from "@/hooks/use-toast";
 import { MapPin, Phone, Mail, Calendar, Clock, CarFront } from 'lucide-react';
-
 const ContactSection = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,28 +20,34 @@ const ContactSection = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    const {
+      name,
+      value
+    } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-
   const handleSelectChange = (name: string, value: string) => {
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
       toast({
         title: "Inquiry Received!",
-        description: "Thank you for your inquiry. We'll get back to you shortly.",
+        description: "Thank you for your inquiry. We'll get back to you shortly."
       });
-      
+
       // Reset form
       setFormData({
         name: '',
@@ -60,9 +60,7 @@ const ContactSection = () => {
       });
     }, 1500);
   };
-
-  return (
-    <section id="contact" className="bg-silver-light py-24">
+  return <section id="contact" className="bg-silver-light py-24">
       <div className="container mx-auto px-4">
         <h2 className="section-heading">Contact Us</h2>
         <p className="section-subheading">
@@ -77,42 +75,17 @@ const ContactSection = () => {
               <div className="space-y-4">
                 <div>
                   <Label htmlFor="name">Full Name</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="John & Jane Doe"
-                    required
-                    className="mt-1"
-                  />
+                  <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder="John & Jane Doe" required className="mt-1" />
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="your@email.com"
-                      required
-                      className="mt-1"
-                    />
+                    <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder="your@email.com" required className="mt-1" />
                   </div>
                   <div>
                     <Label htmlFor="phone">Phone</Label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="0400 000 000"
-                      required
-                      className="mt-1"
-                    />
+                    <Input id="phone" name="phone" value={formData.phone} onChange={handleChange} placeholder="0400 000 000" required className="mt-1" />
                   </div>
                 </div>
                 
@@ -121,30 +94,14 @@ const ContactSection = () => {
                     <Label htmlFor="date">Wedding Date</Label>
                     <div className="relative mt-1">
                       <Calendar className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                      <Input
-                        id="date"
-                        name="date"
-                        type="date"
-                        value={formData.date}
-                        onChange={handleChange}
-                        required
-                        className="pl-10"
-                      />
+                      <Input id="date" name="date" type="date" value={formData.date} onChange={handleChange} required className="pl-10" />
                     </div>
                   </div>
                   <div>
                     <Label htmlFor="time">Pickup Time</Label>
                     <div className="relative mt-1">
                       <Clock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                      <Input
-                        id="time"
-                        name="time"
-                        type="time"
-                        value={formData.time}
-                        onChange={handleChange}
-                        required
-                        className="pl-10"
-                      />
+                      <Input id="time" name="time" type="time" value={formData.time} onChange={handleChange} required className="pl-10" />
                     </div>
                   </div>
                 </div>
@@ -153,10 +110,7 @@ const ContactSection = () => {
                   <Label htmlFor="vehicle">Preferred Vehicle</Label>
                   <div className="relative mt-1">
                     <CarFront className="absolute left-3 top-3 h-4 w-4 text-gray-400 z-10" />
-                    <Select
-                      value={formData.vehicle}
-                      onValueChange={(value) => handleSelectChange('vehicle', value)}
-                    >
+                    <Select value={formData.vehicle} onValueChange={value => handleSelectChange('vehicle', value)}>
                       <SelectTrigger className="pl-10">
                         <SelectValue placeholder="Select a vehicle" />
                       </SelectTrigger>
@@ -173,14 +127,7 @@ const ContactSection = () => {
                 
                 <div>
                   <Label htmlFor="message">Additional Details</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Tell us about your requirements..."
-                    className="mt-1 min-h-[120px]"
-                  />
+                  <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder="Tell us about your requirements..." className="mt-1 min-h-[120px]" />
                 </div>
               </div>
 
@@ -224,9 +171,7 @@ const ContactSection = () => {
                   <div>
                     <h4 className="font-semibold text-lg">Email</h4>
                     <p className="text-gray-600">
-                      <a href="mailto:info@melbourneweddingwheels.com.au" className="hover:text-gold">
-                        info@melbourneweddingwheels.com.au
-                      </a>
+                      <a href="mailto:info@melbourneweddingwheels.com.au" className="hover:text-gold">bookings@combinedcars.com</a>
                     </p>
                   </div>
                 </div>
@@ -258,8 +203,6 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactSection;
