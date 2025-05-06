@@ -1,4 +1,5 @@
-import { useState } from 'react';
+
+import { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -6,6 +7,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from "@/hooks/use-toast";
 import { MapPin, Phone, Mail, Calendar, Clock, CarFront } from 'lucide-react';
+import emailjs from '@emailjs/browser';
+
 const ContactSection = () => {
   const {
     toast
@@ -20,6 +23,8 @@ const ContactSection = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {
       name,
@@ -30,36 +35,55 @@ const ContactSection = () => {
       [name]: value
     }));
   };
+
   const handleSelectChange = (name: string, value: string) => {
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast({
-        title: "Inquiry Received!",
-        description: "Thank you for your inquiry. We'll get back to you shortly."
-      });
+    if (formRef.current) {
+      // Replace these with your actual EmailJS service ID, template ID, and public key
+      const serviceId = 'YOUR_SERVICE_ID';
+      const templateId = 'YOUR_TEMPLATE_ID';
+      const publicKey = 'YOUR_PUBLIC_KEY';
 
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        date: '',
-        time: '',
-        vehicle: '',
-        message: ''
-      });
-    }, 1500);
+      emailjs.sendForm(serviceId, templateId, formRef.current, publicKey)
+        .then((result) => {
+          console.log('Email sent successfully:', result.text);
+          setIsSubmitting(false);
+          toast({
+            title: "Inquiry Sent!",
+            description: "Thank you for your inquiry. We'll get back to you shortly."
+          });
+
+          // Reset form
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            date: '',
+            time: '',
+            vehicle: '',
+            message: ''
+          });
+        }, (error) => {
+          console.error('Failed to send email:', error.text);
+          setIsSubmitting(false);
+          toast({
+            title: "Something went wrong",
+            description: "We couldn't send your inquiry. Please try again later.",
+            variant: "destructive"
+          });
+        });
+    }
   };
+
   return <section id="contact" className="bg-silver-light py-24">
       <div className="container mx-auto px-4">
         <h2 className="section-heading">Contact Us</h2>
@@ -71,7 +95,7 @@ const ContactSection = () => {
           <div className="bg-white rounded-lg shadow-xl p-6 md:p-8">
             <h3 className="text-2xl font-playfair font-semibold mb-6">Request a Quote</h3>
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-4">
                 <div>
                   <Label htmlFor="name">Full Name</Label>
@@ -110,7 +134,11 @@ const ContactSection = () => {
                   <Label htmlFor="vehicle">Preferred Vehicle</Label>
                   <div className="relative mt-1">
                     <CarFront className="absolute left-3 top-3 h-4 w-4 text-gray-400 z-10" />
-                    <Select value={formData.vehicle} onValueChange={value => handleSelectChange('vehicle', value)}>
+                    <Select 
+                      name="vehicle" 
+                      value={formData.vehicle} 
+                      onValueChange={value => handleSelectChange('vehicle', value)}
+                    >
                       <SelectTrigger className="pl-10">
                         <SelectValue placeholder="Select a vehicle" />
                       </SelectTrigger>
@@ -171,7 +199,7 @@ const ContactSection = () => {
                   <div>
                     <h4 className="font-semibold text-lg">Email</h4>
                     <p className="text-gray-600">
-                      <a href="mailto:info@melbourneweddingwheels.com.au" className="hover:text-gold">bookings@combinedcars.com</a>
+                      <a href="mailto:bookings@combinedcars.com" className="hover:text-gold">bookings@combinedcars.com</a>
                     </p>
                   </div>
                 </div>
