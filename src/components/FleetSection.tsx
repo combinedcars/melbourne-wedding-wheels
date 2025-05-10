@@ -8,10 +8,10 @@ import { useIsMobile } from '@/hooks/use-mobile';
 const fleetData = [
   {
     id: 1,
-    name: "Rolls Royce Phantom",
+    name: "BMW 7 Series",
     image: "https://images.unsplash.com/photo-1594502184342-2e12f877aa73?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
     capacity: "3 passengers",
-    description: "The epitome of luxury, our white Rolls Royce Phantom offers an unforgettable experience for the bride and groom.",
+    description: "The epitome of luxury, our BMW 7 Series offers an unforgettable experience for the bride and groom.",
     features: ["White exterior", "Cream leather interior", "Champagne cooler", "Premium sound system"]
   },
   {
@@ -24,11 +24,11 @@ const fleetData = [
   },
   {
     id: 3,
-    name: "Bentley Continental",
+    name: "Mercedes E Class",
     image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
     capacity: "3 passengers",
-    description: "Classic British luxury with modern comfort, perfect for making a statement on your wedding day.",
-    features: ["Silver exterior", "Tan leather interior", "Panoramic roof", "Advanced climate control"]
+    description: "Sleek European luxury with modern comfort, perfect for making a statement on your wedding day.",
+    features: ["Black exterior", "Tan leather interior", "Panoramic roof", "Advanced climate control"]
   },
   {
     id: 4,
