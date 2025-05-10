@@ -33,7 +33,7 @@ const fleetData = [
   {
     id: 4,
     name: "Mercedes V-Class",
-    image: "https://1drv.ms/i/c/72672a5a563e27e8/EXiFqdLEl1ZEnFgSRGhz3gcBaGoZub-DoahQGxnfQRk3Ug?e=4dGLUq",
+    image: "/lovable-uploads/bdacec17-4312-46b4-a17e-16436e456fb9.png",
     capacity: "7 passengers",
     description: "Spacious luxury for the entire wedding party, ensuring everyone travels together in comfort and style.",
     features: ["Black exterior", "Leather interior", "Individual seats", "Ambient lighting"]
