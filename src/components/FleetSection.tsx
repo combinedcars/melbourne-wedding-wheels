@@ -9,7 +9,7 @@ const fleetData = [
   {
     id: 1,
     name: "BMW 7 Series",
-    image: "https://images.unsplash.com/photo-1594502184342-2e12f877aa73?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+    image: "https://1drv.ms/u/c/72672a5a563e27e8/EWi85ZHwlu5NuNyEJT6h3XsBMZDt_fTQ40w8dIxrVFiUnA?e=PGUef0",
     capacity: "3 passengers",
     description: "The epitome of luxury, our BMW 7 Series offers an unforgettable experience for the bride and groom.",
     features: ["White exterior", "Cream leather interior", "Champagne cooler", "Premium sound system"]
@@ -17,7 +17,7 @@ const fleetData = [
   {
     id: 2,
     name: "Mercedes S-Class",
-    image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+    image: "https://1drv.ms/u/c/72672a5a563e27e8/EZ0MMdKjY_xKke6Q4nEGVDgBSu4k0jD7sQvv7LCK6EzWNg?e=Z7EO30",
     capacity: "3 passengers",
     description: "Elegant and sophisticated, our Mercedes S-Class provides a smooth and luxurious ride for the wedding party.",
     features: ["Black exterior", "Black leather interior", "Climate control", "Privacy windows"]
@@ -25,7 +25,7 @@ const fleetData = [
   {
     id: 3,
     name: "Mercedes E Class",
-    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+    image: "https://1drv.ms/i/c/72672a5a563e27e8/Ecsn3plIJhhEteueysJsv_UBVtHqMmdfqV8vbdtmREv1-g?e=C4TQ9z",
     capacity: "3 passengers",
     description: "Sleek European luxury with modern comfort, perfect for making a statement on your wedding day.",
     features: ["Black exterior", "Tan leather interior", "Panoramic roof", "Advanced climate control"]
@@ -33,7 +33,7 @@ const fleetData = [
   {
     id: 4,
     name: "Mercedes V-Class",
-    image: "https://images.unsplash.com/photo-1551446802-5b9a92368e9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80",
+    image: "https://1drv.ms/i/c/72672a5a563e27e8/EXiFqdLEl1ZEnFgSRGhz3gcBaGoZub-DoahQGxnfQRk3Ug?e=4dGLUq",
     capacity: "7 passengers",
     description: "Spacious luxury for the entire wedding party, ensuring everyone travels together in comfort and style.",
     features: ["Black exterior", "Leather interior", "Individual seats", "Ambient lighting"]
