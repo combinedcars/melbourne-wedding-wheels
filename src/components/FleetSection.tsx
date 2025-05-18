@@ -9,7 +9,7 @@ const fleetData = [
   {
     id: 1,
     name: "BMW 7 Series",
-    image: "https://1drv.ms/u/c/72672a5a563e27e8/EWi85ZHwlu5NuNyEJT6h3XsBMZDt_fTQ40w8dIxrVFiUnA?e=PGUef0",
+    image: "https://1drv.ms/u/c/72672a5a563e27e8/EWi85ZHwlu5NuNyEJT6h3XsBMZDt_fTQ40w8dIxrVFiUnA?e=KJQVyk",
     capacity: "3 passengers",
     description: "The epitome of luxury, our BMW 7 Series offers an unforgettable experience for the bride and groom.",
     features: ["White exterior", "Cream leather interior", "Champagne cooler", "Premium sound system"]
