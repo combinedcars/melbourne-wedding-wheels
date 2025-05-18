@@ -25,7 +25,7 @@ const fleetData = [
   {
     id: 3,
     name: "Mercedes E Class",
-    image: "https://1drv.ms/i/c/72672a5a563e27e8/Ecsn3plIJhhEteueysJsv_UBVtHqMmdfqV8vbdtmREv1-g?e=WgrGb7",
+    image: "/lovable-uploads/1f9ba865-0943-4d1f-8048-5fd99e4d8766.png",
     capacity: "3 passengers",
     description: "Sleek European luxury with modern comfort, perfect for making a statement on your wedding day.",
     features: ["Black exterior", "Tan leather interior", "Panoramic roof", "Advanced climate control"]
