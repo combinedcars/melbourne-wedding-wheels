@@ -40,8 +40,8 @@ const AboutSection = () => {
           
           <div className="relative h-[400px] md:h-[500px] rounded-lg overflow-hidden shadow-xl animate-slide-up opacity-0" style={{animationDelay: '0.2s'}}>
             <img 
-              src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
-              alt="Luxury wedding car with flowers" 
+              src="/lovable-uploads/967b7e64-361b-437b-8fb2-71e6df7c573b.png" 
+              alt="Wedding couple in luxury red car" 
               className="w-full h-full object-cover"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
