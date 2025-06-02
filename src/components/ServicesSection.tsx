@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, Clock, Gift, MapPin, Users, Sparkles } from 'lucide-react';
 import { useWordPress } from '@/context/WordPressContext';
+import { sanitizeHtml } from '@/utils/security';
 
 // Icon mapping for service types
 const iconMapping: Record<string, any> = {
@@ -64,8 +65,8 @@ const ServicesSection = () => {
   // Function to get title from WordPress or fallback
   const getTitle = (service: any) => {
     if (service.title?.rendered) {
-      // This is a WordPress service
-      return service.title.rendered;
+      // This is a WordPress service - sanitize HTML
+      return sanitizeHtml(service.title.rendered);
     }
     // This is a fallback service
     return service.title;
@@ -74,8 +75,9 @@ const ServicesSection = () => {
   // Function to get description from WordPress or fallback
   const getDescription = (service: any) => {
     if (service.content?.rendered) {
-      // This is a WordPress service
-      return service.content.rendered.replace(/<\/?[^>]+(>|$)/g, ""); // Strip HTML
+      // This is a WordPress service - sanitize HTML and strip tags
+      const sanitized = sanitizeHtml(service.content.rendered);
+      return sanitized.replace(/<\/?[^>]+(>|$)/g, ""); // Strip remaining HTML
     }
     // This is a fallback service
     return service.description;
