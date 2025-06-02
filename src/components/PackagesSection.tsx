@@ -26,10 +26,10 @@ const packages: WeddingPackage[] = [
     features: [
       { included: true, text: "Luxury sedan for 4 hours upto 70km's travel" },
       { included: true, text: "Professional chauffeur in formal attire" },
-      { included: true, text: "Black Luxury cars" },
+      { included: true, text: "Mercedes E Class or Similar" },
       { included: true, text: "Complimentary bottled water" },
       { included: false, text: "Champagne service" },
-      { included: false, text: "Multiple vehicle options Mercedes E Class or Similar" },
+      { included: false, text: "Multiple vehicle options" },
       { included: false, text: "Extended hours coverage" }
     ]
   },
@@ -60,7 +60,7 @@ const packages: WeddingPackage[] = [
       { included: true, text: "Premium Black Cars" },
       { included: true, text: "Premium champagne and refreshments" },
       { included: true, text: "Custom wedding car decoration" },
-      { included: true, text: "Multiple vehicle options" },
+      { included: true, text: "Multiple vehicle options Mercedes S Class or similar" },
       { included: true, text: "Wedding party transportation" }
     ]
   }
