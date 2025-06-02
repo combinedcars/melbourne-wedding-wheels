@@ -21,43 +21,43 @@ const packages: WeddingPackage[] = [
   {
     id: "essential",
     name: "Essential",
-    price: "$899",
+    price: "$499",
     description: "Perfect for intimate weddings and smaller celebrations.",
     features: [
-      { included: true, text: "Luxury sedan for 3 hours" },
+      { included: true, text: "Luxury sedan for 4 hours upto 70km's travel" },
       { included: true, text: "Professional chauffeur in formal attire" },
-      { included: true, text: "Red carpet service" },
+      { included: true, text: "Black Luxury cars" },
       { included: true, text: "Complimentary bottled water" },
       { included: false, text: "Champagne service" },
-      { included: false, text: "Multiple vehicle options" },
+      { included: false, text: "Multiple vehicle options Mercedes E Class or Similar" },
       { included: false, text: "Extended hours coverage" }
     ]
   },
   {
     id: "premium",
     name: "Premium",
-    price: "$1499",
+    price: "$799",
     description: "Our most popular package for an unforgettable wedding day.",
     popular: true,
     features: [
-      { included: true, text: "Luxury sedan or SUV for 5 hours" },
+      { included: true, text: "Luxury sedan or SUV for 5 hours 110km's travel" },
       { included: true, text: "Professional chauffeur in formal attire" },
-      { included: true, text: "Red carpet service" },
+      { included: true, text: "Black Luxury cars" },
       { included: true, text: "Complimentary champagne" },
       { included: true, text: "Wedding car decoration" },
-      { included: true, text: "Multiple location stops" },
+      { included: true, text: "Multiple Vehicle options S Class or similar Sedan or Luxury SUV" },
       { included: false, text: "Wedding party transportation" }
     ]
   },
   {
     id: "luxury",
     name: "Luxury",
-    price: "$2999",
+    price: "$1299",
     description: "The ultimate luxury experience for your special day.",
     features: [
-      { included: true, text: "Vintage or luxury vehicle for 8 hours" },
+      { included: true, text: "Luxury vehicle for 8 hours 200km's travel" },
       { included: true, text: "Professional chauffeur in formal attire" },
-      { included: true, text: "Red carpet service" },
+      { included: true, text: "Premium Black Cars" },
       { included: true, text: "Premium champagne and refreshments" },
       { included: true, text: "Custom wedding car decoration" },
       { included: true, text: "Multiple vehicle options" },
